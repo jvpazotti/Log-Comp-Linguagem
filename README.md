@@ -1,4 +1,46 @@
 # Log-Comp-Linguagem
+
+## EBNF do Golang Original
+
+```
+PROGRAM         ::= { STATEMENT };
+
+BLOCK           ::= "{", { STATEMENT }, "}";
+
+STATEMENT       ::= ( λ | ASSIGNMENT | PRINT | CONDITIONAL | LOOP | VARIABLE ), "\n";
+
+ASSIGNMENT      ::= IDENTIFIER, "=", EXPRESSION;
+
+PRINT           ::= "print", "#", EXPRESSION, "#";
+
+EXPRESSION      ::= TERM, {("+" | "-" | "."), TERM};
+
+TERM            ::= FACTOR, {("*" | "/"), FACTOR};
+
+FACTOR          ::= (("+" | "-" | "!"), FACTOR | NUMBER | LETTER | "(", EXPRESSION, ")" | IDENTIFIER | PRINT, "(", ")");
+
+COMPARISON      ::= (EXPRESSION, ("==" | "<" | ">" | "<=" | ">="), EXPRESSION);
+
+LOGICAL_OPERATOR::= (EXPRESSION, ("and" | "or"), EXPRESSION);
+
+VARIABLE        ::= "var", IDENTIFIER, { "int" | "string" | "=", EXPRESSION};
+
+LOOP            ::= "loop", ASSIGNMENT, ";", EXPRESSION, ";", ASSIGNMENT, BLOCK;
+
+CONDITIONAL     ::= "if", EXPRESSION, {"then", BLOCK | BLOCK};
+
+IDENTIFIER      ::= LETTER, { LETTER | DIGIT | "_" };
+
+NUMBER          ::= DIGIT, { DIGIT };
+
+LETTER          ::= (a | ... | z | A | ... | Z);
+
+DIGIT           ::= (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9);
+
+```
+
+## EBNF da Linguagem Proposta
+
 ```
 PRATO      ::= { RECEITA };
 
