@@ -2,11 +2,11 @@ banquete main() doce {
 
     comida a salgado = "Tiramissu"
     comida b salgado = "Banana"
-    comida x_1 doce
+    comida num doce
 
-    x_1 = tempero()
+    num = tempero()
 
-    experimentar x_1 == 1 {
+    experimentar num == 5 {
         refeicao(a)
     } saboreando {
         refeicao(b)
