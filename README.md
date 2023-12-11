@@ -42,50 +42,46 @@ DIGIT           ::= (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9);
 ## EBNF da Linguagem Proposta
 
 ```
-PRATO      ::= { RECEITA };
+PROGRAM = { STATEMENT };
 
-FORMA      ::= "{", RECEITA, "}";
+BLOCK = { "{", STATEMENT, "}"};
 
-RECEITA    ::= ( λ | TEMPERO | DEGUSTAR | CONDICIONAR | COZINHAR | INGREDIENTE ), "\n";
+STATEMENT = ( λ | ASSIGNMENT | PRINT | CONDITONAL | LOOP | VAR | DECLARATION | RETURN_DEC ), "\n" ;
 
-TEMPERO    ::= INGREDIENTE, "=", SABOR;
+ASSIGMENT = IDENTIFIER, "=", BOOLEXPRESSION;
 
-DEGUSTAR   ::= "provar", "#", SABOR, "#";
+PRINT = "refeicao", "(", BOOLEXPRESSION, ")";
 
-SABOR      ::= GOSTO, {("+" | "-" | "."), GOSTO};
+EXPRESSION = TERM, {("+" | "-" | "."), TERM};
 
-GOSTO      ::= TOQUE, {("*" | "/"), TOQUE};
+TERM = FACTOR, {("*" | "/"), FACTOR };
 
-TOQUE      ::= (("+" | "-" | "!"), TOQUE | PORÇÃO | CONDIMENTO | "(", SABOR, ")" | INGREDIENTE | DEGUSTAR, "(", ")");
+FACTOR = (("+" | "-" | "!"), FACTOR | NUMBER | STRING | "(", EXPRESSION, ")" | IDENTIFIER, [ "(", ( { BOOLEXPRESSION, ( ",", BOOLEXPRESSION| λ ) } | λ ), ")" ] | 
+SCAN, "(", ")");
 
-COMPARAR   ::= (SABOR, ("==" | "<" | ">" | "<=" | ">="), SABOR);
+RELEXPRESSION = EXPRESSION, {("==" | "<" | ">"), EXPRESSION};
 
-TEMPERAR   ::= (SABOR, ("e" | "ou"), SABOR);
+BOOLEXPRESSION = BOOLTERM, {("||"), BOOLTERM};
 
-INGREDIENTE::= "adicione", INGREDIENTE, { "picado" | "ralado" | "=", SABOR};
+BOOLTERM = RELEXPRESSION, {("&&"), RELEXPRESSION};
 
-COZINHAR   ::= "refogar", TEMPERO, ";", SABOR, ";", TEMPERO, FORMA;
+VAR = "comida", IDENTIFIER, { "doce" | "salgado" | "=", EXPRESSION};
 
-CONDICIONAR::= "se", SABOR, {"então", FORMA | FORMA};
+LOOP = "degustando", ASSIGMENT, ";", EXPRESSION, ";", ASSIGMENT, BLOCK;
 
-INGREDIENTE::= CONDIMENTO, { CONDIMENTO | PORÇÃO | "_"};
+DECLARATION = "banquete", IDENTIFIER, "(", ( { IDENTIFIER, TYPE, (",", λ) } | λ ), ")", TYPE, BLOCK;
 
-PORÇÃO     ::= UNIDADE, { UNIDADE };
+RETURN_DEC = "satisfeito", BOOLEXPRESSION; 
 
-CONDIMENTO ::= (a | ... | z | A | .. | Z);
+CONDITIONAL = "experimentar", EXPRESSION, {"bagre", BLOCK|BLOCK};
 
-UNIDADE    ::= (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9);
+IDENTIFIER = LETTER, { LETTER | DIGIT | "_"};
+
+NUMBER = DIGIT, { DIGIT };
+
+STRING = ( a | ... | z | A | .. | Z);
+
+DIGIT = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 );
 ```
-Algumas adaptações feitas:
 
-PROGRAM virou PRATO – Pense nisso como um prato que você está preparando.
-STATEMENT é agora RECEITA.
-ASSIGNMENT se transformou em TEMPERO - Você está temperando um ingrediente com algum sabor.
-PRINT virou DEGUSTAR – Para provar o sabor de uma expressão.
-EXPRESSION é agora SABOR - Representa os diferentes sabores que você pode criar combinando ingredientes.
-VAR se transformou em INGREDIENTE.
-LOOP se tornou COZINHAR.
-CONDITIONAL é agora CONDICIONAR.
-IDENTIFIER se transformou em INGREDIENTE.
-NUMBER é PORÇÃO – Quantidades de um ingrediente.
-LETTER virou CONDIMENTO - Ingredientes básicos que você pode usar
+
