@@ -49,7 +49,7 @@ DIGIT = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 );
 ```
 ## Para testar
 
-```
+```s
 python main.py <nome do arquivo>.food
 ```
-
+No root do repositório tem 3 testes prontos para ver a linguagem em uso, teste.food (um teste mais robusto) , teste2.food e teste3.food (testes mais simples)
