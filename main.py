@@ -186,7 +186,7 @@ class Scanln(Node):
 class If(Node):
     def evaluate(self, sym_table):
         condition = self.children[0].evaluate(sym_table)
-        if condition:
+        if condition[0]:
             return self.children[1].evaluate(sym_table)
         else:
             return self.children[2].evaluate(sym_table)
@@ -364,7 +364,7 @@ class Tokenizer:
                 self.next = Token(identifier, 'SCANLN')
             elif identifier == 'experimentar':
                 self.next = Token(identifier, 'IF')
-            elif identifier == 'bagre':
+            elif identifier == 'saboreando':
                 self.next = Token(identifier, 'ELSE')
             elif identifier == 'degustando':
                 self.next = Token(identifier, 'FOR')

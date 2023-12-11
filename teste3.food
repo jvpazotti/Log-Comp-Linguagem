@@ -1,0 +1,14 @@
+banquete main() doce {
+
+    comida a salgado = "Tiramissu"
+    comida b salgado = "Banana"
+    comida x_1 doce
+
+    x_1 = tempero()
+
+    experimentar x_1 == 1 {
+        refeicao(a)
+    } saboreando {
+        refeicao(b)
+    }
+}

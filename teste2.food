@@ -1,0 +1,9 @@
+banquete main() doce {
+
+    comida x_1 doce  
+
+    degustando x_1 = 0; x_1 < 10; x_1 = x_1 + 1 {
+	    refeicao(x_1)
+    }
+
+}
