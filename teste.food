@@ -1,0 +1,79 @@
+banquete soma(x doce, y doce) doce {
+    satisfeito x + y
+}
+
+banquete read() doce {
+    satisfeito tempero()
+}
+
+
+banquete concat(a salgado, b salgado) salgado {
+    satisfeito a . b
+}
+
+banquete main() doce {
+    comida x_1 doce
+    x_1 = soma(read()-1, 1)
+    soma(2, 1)
+
+    refeicao(x_1)
+
+    experimentar (x_1 > 1 && !!!(x_1 < 1)) || x_1 == 3 {
+        x_1 = 2
+    } 
+
+    comida x doce = 3+6/3   *  2 -+-  +  2*4/2 + 0/1 -((6+ ((4)))/(2))
+    comida y_1 doce = 3
+    y_1 = soma(y_1, x_1)
+    comida z__ doce
+    z__ = soma(x, y_1)
+
+    experimentar x_1 == 2 {
+        x_1 = 2
+    }
+
+    experimentar x_1 == 3 {
+        x_1 = 2
+    } bagre {
+        x_1 = 3
+    }
+
+    degustando x_1 = 0; x_1 < 1 || x == 2; x_1 = soma(x_1, 1) {
+        refeicao(x_1)
+    } 
+
+
+
+    // Saida final
+    refeicao(x_1)
+    refeicao(x)
+    refeicao(z__+1)
+
+    comida y doce = 2
+    comida z doce
+    z = (y == 2)
+    refeicao(y+z)
+    refeicao(y-z)
+    refeicao(y*z)
+    refeicao(y/z)
+    refeicao(y == z)
+    refeicao(y < z)
+    refeicao(y > z)
+
+    comida a salgado 
+    comida b salgado
+
+    x_1 = 1 
+    y = 1 
+    z = 2
+    a = "abc"
+    b = "def"
+    refeicao(concat(a."",b.""))
+    refeicao(a.x_1)
+    refeicao(x_1.a)
+    refeicao(y.z)
+    refeicao(a.(x_1==1))
+    refeicao(a == a)
+    refeicao(a < b)
+    refeicao(a > b)
+}
